@@ -49,7 +49,9 @@ def load_model():
     return tf.keras.models.load_model('model.h5')
 
 def base_model(uploaded_file):
-    TOKENIZER_MODEL = 'tokenizer.pkl'
+    
+    
+    TOKENIZER_MODEL = subprocess.run(['https://github.com/siddhawan/CDAC-Project/blob/main/streamlit/tokenizer.pkl'], shell=True)
     model_loaded = load_model1()
 
     testing_df = pd.read_csv(uploaded_file)
@@ -87,7 +89,7 @@ def labels(y_lab):
     return temp
 
 @st.cache(allow_output_mutation=True)
-def load_model1():
+def load_model():
     # model_url = './files/models/smallBert/'
     options_tf = tf.saved_model.LoadOptions(experimental_io_device='CPU:0')
 
