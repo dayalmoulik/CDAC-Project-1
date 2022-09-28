@@ -24,6 +24,7 @@ import altair as alt
 from itertools import cycle
 from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode,JsCode
 import nltk
+nltk.download('wordnet')
 
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
