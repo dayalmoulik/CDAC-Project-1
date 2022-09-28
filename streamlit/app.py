@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import urllib.request
 import pandas as pd
 import numpy as np
 import functools
