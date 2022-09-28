@@ -39,12 +39,14 @@ html_temp="""
     """
 st.markdown(html_temp,unsafe_allow_html=True)
 # uploaded_file = './files/data/test_model.csv'
+def load_model1():
+    if not os.path.isfile('model.h5'):
+        urllib.request.urlretrieve('https://github.com/siddhawan/CDAC-Project/blob/main/streamlit/model.h5', 'model.h5')
+    return tf.keras.models.load_model('model.h5')
 @st.cache(allow_output_mutation=True)
 def base_model(uploaded_file):
     TOKENIZER_MODEL = 'tokenizer.pkl'
-    if not os.path.isfile('model.h5'):
-        urllib.request.urlretrieve('https://github.com/siddhawan/CDAC-Project/blob/main/streamlit/model.h5', 'model.h5')
-    model_loaded = tf.keras.models.load_model('model.h5')
+    model_loaded = load_model1()
 
     testing_df = pd.read_csv(uploaded_file)
 
