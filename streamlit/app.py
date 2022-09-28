@@ -38,6 +38,7 @@ html_temp="""
     <h2 style="color:white;text-align:center;">Mental Graph for Users</h2>
     </div>
     """
+nltk.download('averaged_perceptron_tagger')
 st.markdown(html_temp,unsafe_allow_html=True)
 # uploaded_file = './files/data/test_model.csv'
 @st.cache(allow_output_mutation=True)
