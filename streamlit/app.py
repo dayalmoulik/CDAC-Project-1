@@ -41,6 +41,8 @@ st.markdown(html_temp,unsafe_allow_html=True)
 @st.cache(allow_output_mutation=True)
 def base_model(uploaded_file):
     TOKENIZER_MODEL = 'tokenizer.pkl'
+     if not os.path.isfile('model.h5'):
+        urllib.request.urlretrieve('https://github.com/siddhawan/CDAC-Project/blob/main/streamlit/model.h5', 'model.h5')
     model_loaded = tf.keras.models.load_model('model.h5')
 
     testing_df = pd.read_csv(uploaded_file)
