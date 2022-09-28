@@ -40,8 +40,8 @@ st.markdown(html_temp,unsafe_allow_html=True)
 # uploaded_file = './files/data/test_model.csv'
 @st.cache(allow_output_mutation=True)
 def base_model(uploaded_file):
-    TOKENIZER_MODEL = './files/models/tokenizer.pkl'
-    model_loaded = tf.keras.models.load_model(r'/files/models/model.h5')
+    TOKENIZER_MODEL = 'tokenizer.pkl'
+    model_loaded = tf.keras.models.load_model(r'model.h5')
 
     testing_df = pd.read_csv(uploaded_file)
 
@@ -82,7 +82,7 @@ def load_model():
     # model_url = './files/models/smallBert/'
     options_tf = tf.saved_model.LoadOptions(experimental_io_device='CPU:0')
 
-    model_url = './files/models/smallBert'
+    model_url = 'smallBert'
     model = tf.keras.models.load_model(model_url, options=options_tf)
     return model
 
