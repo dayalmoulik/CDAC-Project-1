@@ -29,7 +29,7 @@ nltk.download('wordnet')
 nltk.download('omw-1.4')
 nltk.download('stopwords')
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-
+import subprocess
 import modules.preprocessing_module as preprocessing
 import modules.visualization_module as visualization
 # import modules.main_basic as main_basic
@@ -40,8 +40,9 @@ html_temp="""
 st.markdown(html_temp,unsafe_allow_html=True)
 # uploaded_file = './files/data/test_model.csv'
 def load_model1():
+    
     if not os.path.isfile('model.h5'):
-        urllib.request.urlretrieve('https://github.com/siddhawan/CDAC-Project/blob/main/streamlit/model.h5', 'model.h5')
+        subprocess.run(['curl --output model.h5 https://github.com/siddhawan/CDAC-Project/blob/main/streamlit/model.h5'], shell=True)
     return tf.keras.models.load_model('model.h5')
 @st.cache(allow_output_mutation=True)
 def base_model(uploaded_file):
