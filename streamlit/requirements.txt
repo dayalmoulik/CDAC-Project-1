@@ -7,3 +7,4 @@ gensim==3.6.0
 wordcloud==1.8.2.2
 tensorflow==2.8.2
 tensorflow-text==2.8.2
+streamlit-aggrid
