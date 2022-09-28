@@ -42,7 +42,7 @@ nltk.download('averaged_perceptron_tagger')
 st.markdown(html_temp,unsafe_allow_html=True)
 # uploaded_file = './files/data/test_model.csv'
 @st.cache(allow_output_mutation=True)
-def load_model():
+def load_model1():
     if not os.path.isfile('model.h5'):
         subprocess.run(['curl --output model.h5 https://github.com/siddhawan/CDAC-Project/blob/main/streamlit/model.h5'], shell=True)
     return tf.keras.models.load_model('model.h5')
