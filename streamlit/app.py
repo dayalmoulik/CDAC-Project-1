@@ -26,6 +26,7 @@ from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode,JsCode
 import nltk
 nltk.download('wordnet')
 nltk.download('omw-1.4')
+nltk.download('stopwords')
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 import modules.preprocessing_module as preprocessing
