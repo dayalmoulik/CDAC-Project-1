@@ -51,7 +51,7 @@ def base_model(uploaded_file):
     
     
     TOKENIZER_MODEL = subprocess.run(['https://github.com/siddhawan/CDAC-Project/blob/main/streamlit/tokenizer.pkl'], shell=True)
-    model_loaded = load_model1()
+    model_loaded = load_model()
 
     testing_df = pd.read_csv(uploaded_file)
 
