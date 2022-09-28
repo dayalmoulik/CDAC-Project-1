@@ -39,12 +39,13 @@ html_temp="""
     """
 st.markdown(html_temp,unsafe_allow_html=True)
 # uploaded_file = './files/data/test_model.csv'
-def load_model1():
+@st.cache(allow_output_mutation=True)
+def load_model():
     
     if not os.path.isfile('model.h5'):
         subprocess.run(['curl --output model.h5 https://github.com/siddhawan/CDAC-Project/blob/main/streamlit/model.h5'], shell=True)
     return tf.keras.models.load_model('model.h5')
-@st.cache(allow_output_mutation=True)
+
 def base_model(uploaded_file):
     TOKENIZER_MODEL = 'tokenizer.pkl'
     model_loaded = load_model1()
@@ -84,7 +85,7 @@ def labels(y_lab):
     return temp
 
 @st.cache(allow_output_mutation=True)
-def load_model():
+def load_model1():
     # model_url = './files/models/smallBert/'
     options_tf = tf.saved_model.LoadOptions(experimental_io_device='CPU:0')
 
