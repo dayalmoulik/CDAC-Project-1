@@ -32,6 +32,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import subprocess
 import modules.preprocessing_module as preprocessing
 import modules.visualization_module as visualization
+nltk.download('punkt')
 # import modules.main_basic as main_basic
 html_temp="""
     <h2 style="color:white;text-align:center;">Mental Graph for Users</h2>
